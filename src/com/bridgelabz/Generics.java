@@ -1,39 +1,22 @@
 package com.bridgelabz;
 
 public class Generics {
-	private static void checkMax(Integer x1, Integer x2, Integer x3) {
-		Integer max = x1;
-		if (x2.compareTo(max) > 0)
-			max = x2;
-		if (x3.compareTo(max) > 0)
-			max = x3;
-		System.out.println("Max value is :" + max);
-	}
-
-	private static void checkMax(Float y1, Float y2, Float y3) {
-		Float max = y1;
-		if (y2.compareTo(max) > 0)
-			max = y2;
-		if (y2.compareTo(max) > 0)
-			max = y3;
-		System.out.println("Max value is :" + max);
-	}
-
-	private static void checkMax(String z1, String z2, String z3) {
-		String max = z1;
-		if (z2.compareTo(max) > 0)
-			max = z2;
-		if (z3.compareTo(max) > 0)
-			max = z3;
-		System.out.println("Max value is :" + max);
+	public static <T extends Comparable<T>> void maxOf(T x, T y, T z) {
+		T max = x;
+		if (y.compareTo(max) > 0)
+			max = y;
+		if (z.compareTo(max) > 0)
+			max = z;
+		System.out.println("Max of " + x + "," + y + " & " + z + " is " + max);
 	}
 
 	public static void main(String[] args) {
-		Integer x1 = 25, x2 = 30, x3 = 42;
-		Float y1 = 25.23f, y2 = 30.56f, y3 = 42.89f;
-		String z1 = "google", z2 = "bing", z3 = "yahoo";
-		checkMax(x1, x2, x3);
-		checkMax(y1, y2, y3);
-		checkMax(z1, z2, z3);
+
+		Integer x1 = 11, x2 = 10, x3 = 12;
+		Float y1 = 4.1f, y2 = 5.2f, y3 = 3.3f;
+		String z1 = "pear", z2 = "apple", z3 = "orange";
+		maxOf(x1, x2, x3);
+		maxOf(y1, y2, y3);
+		maxOf(z1, z2, z3);
 	}
 }
